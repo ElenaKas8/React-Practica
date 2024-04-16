@@ -1,22 +1,32 @@
-
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [firstName, setFirstName] = useState("");
+  const firstName = useRef(null);
+  const lastName = useRef(null);
+  const [fullName, setFullName] = useState({ firstName: "", lastName: "" });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ firstName });
+    console.log({
+      firstName: firstName.current.value,
+      lastName: lastName.current.value,
+    });
+    setFullName({
+      firstName: firstName.current.value,
+      lastName: lastName.current.value,
+    });
+    firstName.current.value = "";
+    lastName.current.value = "";
   };
 
-  const handleFirstName = (e) => {
-    setFirstName(e.target.value);
-  };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input onChange={handleFirstName} value={firstName} />
+      <form className="Form" onSubmit={handleSubmit}>
+        <input type="text" ref={firstName} />
+        <input type="text" ref={lastName} />
         <input type="submit" />
+        {fullName.firstName} {fullName.lastName}
       </form>
     </div>
   );

@@ -1,11 +1,26 @@
-.darkMode {
-  color: white;
-  background-color: black;
-  height: 100vh;
+.Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.lightMode {
-  color: black;
-  background-color: white;
-  height: 100vh;
+input[type="text"] {
+  padding: 5px 8px;
+  border-radius: 5px;
+  margin: 3px auto;
+  border: 1px solid rgb(128, 128, 128);
+  transition: border 1.3s, box-shadow 1.3s;
+}
+
+input[type="text"]:focus {
+  border: 1px solid blue;
+  box-shadow: 5px 5px 5px rgb(113, 113, 216);
+}
+
+input[type="submit"] {
+  padding: 6px 8px;
+  border-radius: 8px;
+  background-color: rgb(85, 85, 196);
+  color: white;
 }
